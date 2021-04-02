@@ -2,15 +2,18 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 import React, { FC, useCallback, useRef, useState } from "react";
 import MapGL, { MapRef } from "react-map-gl";
 import Geocoder from "react-mapbox-gl-geocoder";
+import { useViewportDispatch, useViewportState } from "../../hooks/useViewport";
 
 interface MapViewProps {}
 
 export const MapView: FC<MapViewProps> = ({}) => {
-  const [viewport, setViewport] = useState({
-    latitude: 50.3003322078928,
-    longitude: 18.85904614536362,
-    zoom: 12,
-  });
+  // const [viewport, setViewport] = useState({
+  //   latitude: 50.3003322078928,
+  //   longitude: 18.85904614536362,
+  //   zoom: 12,
+  // });
+  const viewport = useViewportState();
+  const setViewport = useViewportDispatch();
 
   const colorMode = useColorModeValue(
     "mapbox://styles/mapbox/light-v10",
