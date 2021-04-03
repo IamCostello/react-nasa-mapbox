@@ -1,17 +1,13 @@
 import { Box, useColorModeValue } from "@chakra-ui/react";
-import React, { FC, useCallback, useRef, useState } from "react";
-import MapGL, { MapRef } from "react-map-gl";
+import React, { FC } from "react";
+import MapGL, { GeolocateControl } from "react-map-gl";
 import Geocoder from "react-mapbox-gl-geocoder";
+import { MAX_ZOOM_VALUE, MIN_ZOOM_VALUE } from "../../config/geocoder";
 import { useViewportDispatch, useViewportState } from "../../hooks/useViewport";
 
 interface MapViewProps {}
 
 export const MapView: FC<MapViewProps> = ({}) => {
-  // const [viewport, setViewport] = useState({
-  //   latitude: 50.3003322078928,
-  //   longitude: 18.85904614536362,
-  //   zoom: 12,
-  // });
   const viewport = useViewportState();
   const setViewport = useViewportDispatch();
 
@@ -20,32 +16,26 @@ export const MapView: FC<MapViewProps> = ({}) => {
     "mapbox://styles/mapbox/dark-v10"
   );
 
-  const mapRef = useRef<MapRef | null>(null);
-
-  const handleViewportChange = useCallback(
-    (newCords) => setViewport(newCords),
-    []
-  );
-
   return (
-    <Box w="420px" height="420px">
+    <Box w="820px" height="820px">
       <MapGL
-        onViewportChange={handleViewportChange}
+        {...viewport}
+        onViewportChange={setViewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        ref={mapRef}
         width="100%"
         height="100%"
-        // mapStyle="mapbox://styles/mapbox/dark-v10"
         mapStyle={colorMode}
-        {...viewport}
+        maxZoom={MAX_ZOOM_VALUE}
+        minZoom={MIN_ZOOM_VALUE}
       >
         <Geocoder
-          onSelected={handleViewportChange}
+          onSelected={setViewport}
           viewport={viewport}
-          hideOnSelect={true}
+          hideOnSelect
+          updateInputOnSelect
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          // mapRef={mapRef}
         />
+        <GeolocateControl trackUserLocation auto showAccuracyCircle={false} />
       </MapGL>
     </Box>
   );

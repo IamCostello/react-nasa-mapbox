@@ -1,6 +1,6 @@
 import { createContext, Dispatch, FC, useState, SetStateAction } from "react";
 
-type GLviewport = {
+export type GLviewport = {
   latitude: number;
   longitude: number;
   zoom: number;
