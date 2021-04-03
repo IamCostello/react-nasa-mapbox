@@ -2,6 +2,10 @@ import { MAX_DIM_VALUE, MIN_DIM_VALUE } from "../config/earthImagery";
 import { MAX_ZOOM_VALUE, MIN_ZOOM_VALUE } from "../config/geocoder";
 import { normalizeZoomValue } from "./normalizeZoomValue";
 
+/**
+ * @param {number} value
+ * @returns image size value of Nasa's Earth Imagery repository
+ */
 export const getSateliteDimValue = (value: number) => {
   const zoomValue = normalizeZoomValue(
     value,

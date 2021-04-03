@@ -1,4 +1,4 @@
-import { AspectRatio, Box, Stack } from "@chakra-ui/layout";
+import { Box, Stack } from "@chakra-ui/layout";
 import React, { useState } from "react";
 import { StyleModeButton } from "../components/common/StyleModeButton";
 import "../theme/geocoder.css";

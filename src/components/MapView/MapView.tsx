@@ -4,9 +4,10 @@ import MapGL, { GeolocateControl } from "react-map-gl";
 import { MAX_ZOOM_VALUE, MIN_ZOOM_VALUE } from "../../config/geocoder";
 import { useViewportDispatch, useViewportState } from "../../hooks/useViewport";
 
-interface MapViewProps {}
-
-export const MapView: FC<MapViewProps> = ({}) => {
+/**
+ * React component used to display mapbox map
+ */
+export const MapView: FC = () => {
   const viewport = useViewportState();
   const setViewport = useViewportDispatch();
 

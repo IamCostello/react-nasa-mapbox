@@ -1,25 +1,24 @@
 import { Button } from "@chakra-ui/button";
-import { Box, Center, Heading, Stack } from "@chakra-ui/layout";
+import { Box, Heading, Stack } from "@chakra-ui/layout";
 import React, { FC } from "react";
 import Geocoder from "react-mapbox-gl-geocoder";
 import { useViewportDispatch, useViewportState } from "../../hooks/useViewport";
 import { Text, useColorModeValue } from "@chakra-ui/react";
-import { GeolocateControl } from "react-map-gl";
 
 interface ViewsControllerProps {
   onGetSateliteView: () => void;
 }
 
+/**
+ * React component used to control user selected viewport
+ * @param onGetSateliteView - save current coordinates as user viewport
+ */
 export const ViewsController: FC<ViewsControllerProps> = ({
   onGetSateliteView,
 }) => {
   const viewport = useViewportState();
   const setViewport = useViewportDispatch();
   const backgroundColor = useColorModeValue("gray.50", "gray.800");
-  const inputBorder = useColorModeValue(
-    "1px solid rgb(0, 0, 0, 0.5)",
-    "1px solid rgb(255, 255, 255, 0.5)"
-  );
   const darkMode = useColorModeValue("light", "dark");
 
   return (

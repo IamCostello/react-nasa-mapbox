@@ -3,6 +3,9 @@ import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import React, { FC } from "react";
 
+/**
+ * React component used to toggle Chakra Ui color mode
+ */
 export const StyleModeButton: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const backgroundColor = useColorModeValue("white", "gray.800");
