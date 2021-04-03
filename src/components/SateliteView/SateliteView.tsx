@@ -15,6 +15,12 @@ interface SateliteViewProps {
   userViewport: GLviewport;
 }
 
+enum imageStatus {
+  loading = "loading",
+  failed = "failed",
+  loaded = "loaded",
+}
+
 /**
  * React component used to display Nasa's Earth Imagery repository image
  * @param {GLviewport} userViewport - user selected viewport
@@ -47,9 +53,9 @@ export const SateliteView: FC<SateliteViewProps> = ({ userViewport }) => {
 
   return (
     <Box width="100%" height="100%" backgroundColor={backGroundColorMode}>
-      {status === "loading" && <Loader />}
-      {status === "failed" && <Warning />}
-      {status === "loaded" && (
+      {status === imageStatus.loading && <Loader />}
+      {status === imageStatus.failed && <Warning />}
+      {status === imageStatus.loaded && (
         <Image
           height="100%"
           width="100%"
