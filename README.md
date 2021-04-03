@@ -1,4 +1,4 @@
-# Days of Code
+# react-nasa-mapbox
 
 React application that let's user choose a location using the Mapbox map and display it as a satelite image from Nasa's Earth Imagery repository.
 
