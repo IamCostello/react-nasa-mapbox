@@ -15,8 +15,14 @@ export const MapView: FC<MapViewProps> = ({}) => {
     "mapbox://styles/mapbox/dark-v10"
   );
 
+  const geolocateStyle = {
+    bottom: 28,
+    right: 0,
+    margin: 8,
+  };
+
   return (
-    <Box w="820px" height="820px">
+    <Box width="100%" height="100%" filter="brightness(92%)">
       <MapGL
         {...viewport}
         onViewportChange={setViewport}
@@ -27,7 +33,13 @@ export const MapView: FC<MapViewProps> = ({}) => {
         maxZoom={MAX_ZOOM_VALUE}
         minZoom={MIN_ZOOM_VALUE}
       >
-        <GeolocateControl trackUserLocation auto showAccuracyCircle={false} />
+        <GeolocateControl
+          style={geolocateStyle}
+          trackUserLocation
+          auto
+          showAccuracyCircle={false}
+          showUserLocation={false}
+        />
       </MapGL>
     </Box>
   );

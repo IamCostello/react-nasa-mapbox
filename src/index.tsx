@@ -1,7 +1,7 @@
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "./pages/App";
 import { ViewportProvider } from "./providers/viewport";
 import reportWebVitals from "./reportWebVitals";
 import nightMode from "./theme/theme";

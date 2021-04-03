@@ -8,7 +8,15 @@ export const StyleModeButton: FC = () => {
   const backgroundColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Button onClick={toggleColorMode} backgroundColor={backgroundColor} m={2}>
+    <Button
+      onClick={toggleColorMode}
+      backgroundColor={backgroundColor}
+      m={2}
+      position="fixed"
+      right="0"
+      top="0"
+      zIndex="10"
+    >
       {colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
     </Button>
   );
