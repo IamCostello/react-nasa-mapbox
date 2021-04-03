@@ -5,17 +5,19 @@ import "./theme/geocoder.css";
 import { MapView } from "./components/MapView/MapView";
 import { useViewportState } from "./hooks/useViewport";
 import { SateliteView } from "./components/SateliteView/SateliteView";
+import { ViewsController } from "./components/ViewsController/ViewsController";
 
 function App() {
   const viewport = useViewportState();
 
   return (
-    <Stack direction={{ base: "column", lg: "row" }}>
+    <Stack direction={{ base: "column", lg: "row" }} w="100vw" h="100vh">
       <Box>
         {viewport.latitude.toFixed(2)}, {viewport.longitude.toFixed(2)},{" "}
         {viewport.zoom.toFixed(2)}
         <SateliteView />
         <StyleModeButton />
+        <ViewsController />
       </Box>
       <Box w="420px" height="420px">
         <MapView />

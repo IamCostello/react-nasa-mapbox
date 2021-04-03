@@ -1,7 +1,6 @@
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import React, { FC } from "react";
 import MapGL, { GeolocateControl } from "react-map-gl";
-import Geocoder from "react-mapbox-gl-geocoder";
 import { MAX_ZOOM_VALUE, MIN_ZOOM_VALUE } from "../../config/geocoder";
 import { useViewportDispatch, useViewportState } from "../../hooks/useViewport";
 
@@ -28,13 +27,6 @@ export const MapView: FC<MapViewProps> = ({}) => {
         maxZoom={MAX_ZOOM_VALUE}
         minZoom={MIN_ZOOM_VALUE}
       >
-        <Geocoder
-          onSelected={setViewport}
-          viewport={viewport}
-          hideOnSelect
-          updateInputOnSelect
-          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        />
         <GeolocateControl trackUserLocation auto showAccuracyCircle={false} />
       </MapGL>
     </Box>

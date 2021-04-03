@@ -2,13 +2,27 @@
   box-sizing: border-box;
 }
 
+.dark {
+  background-color: #171923;
+}
+
+.light {
+  background-color: #e2e8f0;
+}
+
 .react-geocoder {
   position: relative;
-  width: 300px;
+  width: 100%;
+  border-radius: 6px;
 }
 
 .react-geocoder input {
+  background-color: inherit;
+  color: inherit;
   width: 100%;
+  padding: 4px 12px;
+  border-radius: 6px;
+  height: 40px;
 }
 
 .react-geocoder-results {
@@ -16,11 +30,14 @@
   top: 100%;
   left: 0;
   z-index: 1;
-  /* background-color: white; */
-  border: 1px solid black;
+  background-color: inherit;
+  border: 1px solid inherit;
   width: 100%;
+  border-radius: 0 0 12px 12px;
 }
 
 .react-geocoder-item {
-  border-bottom: 1px solid black;
+  border-top: 1px solid white;
+  padding: 8px;
+  cursor: pointer;
 }
