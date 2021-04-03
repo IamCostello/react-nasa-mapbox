@@ -1,6 +1,7 @@
 # react-nasa-mapbox
 
 React application that let's user choose a location using the Mapbox map and display it as a satelite image from Nasa's Earth Imagery repository.
+## Live demo: https://606816a54e3fdd0008a847d7--relaxed-lalande-68662d.netlify.app
 
 <p align="center">
  <img src="https://i.imgur.com/zrMFCMq.jpg" alt="desktop"/>
